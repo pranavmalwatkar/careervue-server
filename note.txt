@@ -81,11 +81,17 @@ vercel --prod
 3. Import your Git repository
 4. Configure project settings:
    - Framework Preset: Other (for custom Node.js)
-   - Root Directory: ./
-   - Build Command: (leave empty if not needed)
+   - Root Directory: ./server (if your server code is in server folder)
+   - Build Command: npm run dev
    - Output Directory: (leave empty)
+   - Install Command: npm install
 5. Add Environment Variables (if needed)
 6. Click "Deploy"
+
+**IMPORTANT FOR THIS PROJECT:**
+- Set Root Directory to: ./server
+- Set Build Command to: npm run dev
+- Make sure vercel.json is in the server folder
 
 ## Step 5: Configure Environment Variables
 
