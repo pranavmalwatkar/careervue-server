@@ -1,0 +1,183 @@
+# How to Deploy Server-Side Application to Vercel
+
+## Prerequisites
+- Vercel account (sign up at vercel.com)
+- Git repository (GitHub, GitLab, or Bitbucket)
+- Node.js server application
+
+## Step 1: Prepare Your Server for Vercel
+
+### Create vercel.json Configuration File
+Create a `vercel.json` file in your project root:
+
+```json
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "index.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "index.js"
+    }
+  ]
+}
+```
+
+Note: Replace "index.js" with your main server file name.
+
+### Update Package.json
+Ensure your package.json has the correct start script and engines:
+
+```json
+{
+  "engines": {
+    "node": "18.x"
+  },
+  "scripts": {
+    "start": "node index.js"
+  }
+}
+```
+
+## Step 2: Install Vercel CLI (Optional but Recommended)
+
+```bash
+npm install -g vercel
+```
+
+## Step 3: Deploy Using Vercel CLI
+
+### Login to Vercel
+```bash
+vercel login
+```
+
+### Deploy Your Application
+```bash
+vercel
+```
+
+Follow the prompts:
+- Set up and deploy? Y
+- Which scope? (Select your account)
+- Link to existing project? N (for first deployment)
+- What's your project's name? (Enter project name)
+- In which directory is your code located? ./
+
+### Deploy to Production
+```bash
+vercel --prod
+```
+
+## Step 4: Deploy Using Vercel Dashboard (Alternative Method)
+
+1. Go to https://vercel.com/dashboard
+2. Click "Add New" → "Project"
+3. Import your Git repository
+4. Configure project settings:
+   - Framework Preset: Other (for custom Node.js)
+   - Root Directory: ./
+   - Build Command: (leave empty if not needed)
+   - Output Directory: (leave empty)
+5. Add Environment Variables (if needed)
+6. Click "Deploy"
+
+## Step 5: Configure Environment Variables
+
+### Via CLI:
+```bash
+vercel env add VARIABLE_NAME
+```
+
+### Via Dashboard:
+1. Go to Project Settings
+2. Navigate to "Environment Variables"
+3. Add your variables (DATABASE_URL, API_KEYS, etc.)
+4. Redeploy for changes to take effect
+
+## Important Notes for Server-Side Deployment
+
+### Serverless Functions
+- Vercel uses serverless functions
+- Each API route should complete within 10 seconds (Hobby plan)
+- For longer operations, consider upgrading to Pro plan (60 seconds)
+
+### Database Connections
+- Use connection pooling for databases
+- Consider serverless-friendly databases (MongoDB Atlas, PlanetScale, Supabase)
+- Close database connections properly
+
+### File System
+- File system is read-only except for /tmp directory
+- Don't rely on persistent file storage
+- Use external storage (AWS S3, Cloudinary) for uploads
+
+### CORS Configuration
+Make sure to configure CORS properly:
+
+```javascript
+app.use(cors({
+  origin: ['https://your-frontend-domain.vercel.app'],
+  credentials: true
+}));
+```
+
+## Common Issues and Solutions
+
+### Issue: "Module not found"
+Solution: Ensure all dependencies are in package.json and run `npm install`
+
+### Issue: "Function execution timeout"
+Solution: Optimize your code or upgrade Vercel plan
+
+### Issue: Database connection errors
+Solution: Use connection pooling and environment variables
+
+### Issue: CORS errors
+Solution: Configure CORS middleware properly with your frontend domain
+
+## Useful Vercel Commands
+
+```bash
+vercel                    # Deploy to preview
+vercel --prod            # Deploy to production
+vercel ls                # List deployments
+vercel logs [url]        # View deployment logs
+vercel env ls            # List environment variables
+vercel domains           # Manage custom domains
+vercel remove [project]  # Remove a project
+```
+
+## Custom Domain Setup
+
+1. Go to Project Settings → Domains
+2. Add your custom domain
+3. Configure DNS records as instructed
+4. Wait for DNS propagation (can take up to 48 hours)
+
+## Monitoring and Logs
+
+- View logs in Vercel Dashboard → Deployments → [Select deployment] → Logs
+- Use `console.log()` for debugging (visible in deployment logs)
+- Consider integrating monitoring tools (Sentry, LogRocket)
+
+## Best Practices
+
+1. Use environment variables for sensitive data
+2. Enable automatic deployments from Git branches
+3. Test in preview deployments before promoting to production
+4. Set up proper error handling and logging
+5. Use Vercel Analytics for performance monitoring
+6. Keep dependencies updated
+7. Optimize cold start times by minimizing dependencies
+
+## Resources
+
+- Vercel Documentation: https://vercel.com/docs
+- Vercel Node.js Runtime: https://vercel.com/docs/runtimes#official-runtimes/node-js
+- Vercel CLI Reference: https://vercel.com/docs/cli
