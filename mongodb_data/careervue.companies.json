@@ -1,0 +1,135 @@
+[{
+  "_id": {
+    "$oid": "68d1919094ebeebdf682d69d"
+  },
+  "id": "1",
+  "name": "Tata Consultancy Services (TCS)",
+  "sector": "IT & Software",
+  "officialWebsite": "https://www.tcs.com",
+  "careerLink": "https://www.tcs.com/careers",
+  "logo": "",
+  "description": "Leading global IT services, consulting and business solutions organization",
+  "headquarters": "Mumbai, India",
+  "founded": "1968",
+  "employees": "500,000+",
+  "isActive": true,
+  "featured": false,
+  "createdBy": {
+    "$oid": "68d144632c00777ebd6798d6"
+  },
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-09-22T18:12:32.670Z"
+  },
+  "updatedAt": {
+    "$date": "2025-09-22T18:12:32.670Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68d1919094ebeebdf682d69e"
+  },
+  "id": "2",
+  "name": "Infosys",
+  "sector": "IT & Software",
+  "officialWebsite": "https://www.infosys.com",
+  "careerLink": "https://www.infosys.com/careers",
+  "logo": "",
+  "description": "Global leader in next-generation digital services and consulting",
+  "headquarters": "Bangalore, India",
+  "founded": "1981",
+  "employees": "300,000+",
+  "isActive": true,
+  "featured": false,
+  "createdBy": {
+    "$oid": "68d144632c00777ebd6798d6"
+  },
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-09-22T18:12:32.671Z"
+  },
+  "updatedAt": {
+    "$date": "2025-09-22T18:12:32.671Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68d1919094ebeebdf682d69f"
+  },
+  "id": "3",
+  "name": "Wipro",
+  "sector": "IT & Software",
+  "officialWebsite": "https://www.wipro.com",
+  "careerLink": "https://careers.wipro.com",
+  "logo": "",
+  "description": "Leading global information technology, consulting and business process services",
+  "headquarters": "Bangalore, India",
+  "founded": "1945",
+  "employees": "250,000+",
+  "isActive": true,
+  "featured": false,
+  "createdBy": {
+    "$oid": "68d144632c00777ebd6798d6"
+  },
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-09-22T18:12:32.671Z"
+  },
+  "updatedAt": {
+    "$date": "2025-09-22T18:12:32.671Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68d1919094ebeebdf682d6a0"
+  },
+  "id": "4",
+  "name": "HCL Technologies",
+  "sector": "IT & Software",
+  "officialWebsite": "https://www.hcltech.com",
+  "careerLink": "https://www.hcltech.com/careers",
+  "logo": "",
+  "description": "Global technology company providing industry-transforming capabilities",
+  "headquarters": "Noida, India",
+  "founded": "1976",
+  "employees": "200,000+",
+  "isActive": true,
+  "featured": false,
+  "createdBy": {
+    "$oid": "68d144632c00777ebd6798d6"
+  },
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-09-22T18:12:32.672Z"
+  },
+  "updatedAt": {
+    "$date": "2025-09-22T18:12:32.672Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68d1919094ebeebdf682d6a1"
+  },
+  "id": "5",
+  "name": "Tech Mahindra",
+  "sector": "IT & Software",
+  "officialWebsite": "https://www.techmahindra.com",
+  "careerLink": "https://www.techmahindra.com/careers",
+  "logo": "",
+  "description": "Digital transformation, consulting and business re-engineering services",
+  "headquarters": "Pune, India",
+  "founded": "1986",
+  "employees": "150,000+",
+  "isActive": true,
+  "featured": false,
+  "createdBy": {
+    "$oid": "68d144632c00777ebd6798d6"
+  },
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-09-22T18:12:32.672Z"
+  },
+  "updatedAt": {
+    "$date": "2025-09-22T18:12:32.672Z"
+  }
+}]

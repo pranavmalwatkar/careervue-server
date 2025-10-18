@@ -1,0 +1,100 @@
+[{
+  "_id": {
+    "$oid": "68d1187a391b120352f76ba5"
+  },
+  "name": "admin",
+  "email": "malwatkarpranav@gmail.com",
+  "password": "$2b$12$4LhoiMvnCYF8LjVEiUAEou31geYSVlg2kQHvKDrXIeLwKn0K5KjtG",
+  "profilePicture": "",
+  "resume": "",
+  "skills": [],
+  "experience": 0,
+  "location": {
+    "country": "India"
+  },
+  "isVerified": false,
+  "role": "admin",
+  "createdAt": {
+    "$date": "2025-09-22T09:35:54.963Z"
+  },
+  "updatedAt": {
+    "$date": "2025-09-22T09:35:54.963Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68d14f237155110ae68d1d51"
+  },
+  "name": "Pranav",
+  "email": "pranavmalwatkar142@gmail.com",
+  "password": "$2b$12$sWN2kiIO8QO2jzQlOk352OtFyDOt6vlLj2no6q5mOGk60QmLrTQya",
+  "profilePicture": "",
+  "resume": "",
+  "skills": [],
+  "experience": 0,
+  "location": {
+    "country": "India"
+  },
+  "isVerified": true,
+  "role": "user",
+  "createdAt": {
+    "$date": "2025-09-22T13:29:07.295Z"
+  },
+  "updatedAt": {
+    "$date": "2025-09-23T08:19:57.620Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68d153114db5aeaeb1f1baca"
+  },
+  "name": "Careervue Admin",
+  "email": "admin@careervue.com",
+  "password": "$2b$12$Y11CLn2VyLMPDtBoScoeQuTpWUai8uxQbMTjtTNVnBtkJs5aJseU2",
+  "profilePicture": "",
+  "resume": "",
+  "skills": [],
+  "experience": 0,
+  "location": {
+    "country": "India"
+  },
+  "isVerified": false,
+  "role": "admin",
+  "createdAt": {
+    "$date": "2025-09-22T13:45:53.744Z"
+  },
+  "updatedAt": {
+    "$date": "2025-09-22T13:45:53.744Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68d25881294bacb4d7d5e4e4"
+  },
+  "name": "jayesh",
+  "email": "automation142@gmail.com",
+  "password": "$2b$12$txuFv0b35uT4oB3aYM93luCALK7Uagg1PjDR9TS53aLHbvdgJUsM2",
+  "profilePicture": "",
+  "resume": "",
+  "skills": [],
+  "experience": 0,
+  "location": {
+    "country": "India"
+  },
+  "isVerified": true,
+  "role": "user",
+  "createdAt": {
+    "$date": "2025-09-23T08:21:21.067Z"
+  },
+  "updatedAt": {
+    "$date": "2025-09-23T08:43:41.974Z"
+  },
+  "__v": 0,
+  "resetPasswordExpires": {
+    "$date": "2025-09-23T09:22:41.933Z"
+  },
+  "resetPasswordToken": "ddd9b5ee1f91da0b332a345f302be805a1959a45da7e4e8e533f4ed45a277876"
+}]

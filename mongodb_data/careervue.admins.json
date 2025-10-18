@@ -1,0 +1,50 @@
+[{
+  "_id": {
+    "$oid": "68d144632c00777ebd6798d6"
+  },
+  "name": "Pranav Malwatkar",
+  "email": "malwatkarpranav@gmail.com",
+  "password": "$2b$12$MqpSvdgALWoAskH4BYQta.S.czWoPVs.MHPUFmlR65rvrfV/Fy/e.",
+  "role": "super_admin",
+  "permissions": {
+    "users": {
+      "view": true,
+      "create": true,
+      "edit": true,
+      "delete": true
+    },
+    "jobs": {
+      "view": true,
+      "create": true,
+      "edit": true,
+      "delete": true
+    },
+    "applications": {
+      "view": true,
+      "create": true,
+      "edit": true,
+      "delete": true
+    },
+    "analytics": {
+      "view": true
+    },
+    "settings": {
+      "view": true,
+      "edit": true
+    }
+  },
+  "isActive": true,
+  "profilePicture": "",
+  "department": "IT",
+  "createdAt": {
+    "$date": "2025-09-22T12:43:15.033Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-18T09:04:27.354Z"
+  },
+  "__v": 0,
+  "lastLogin": {
+    "$date": "2025-10-18T09:04:27.347Z"
+  },
+  "loginAttempts": 0
+}]

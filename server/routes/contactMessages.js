@@ -1,0 +1,211 @@
+import express from 'express';
+import Message from '../models/Message.js';
+import { adminAuth, checkPermission } from '../middleware/adminAuth.js';
+
+const router = express.Router();
+
+// Get all contact messages with admin filters
+router.get('/', adminAuth, checkPermission('applications', 'view'), async (req, res) => {
+  try {
+    const {
+      page = 1,
+      limit = 10,
+      search,
+      status,
+      priority,
+      sortBy = 'createdAt',
+      sortOrder = 'desc'
+    } = req.query;
+
+    const filter = {};
+
+    // Apply filters
+    if (search) {
+      filter.$or = [
+        { name: new RegExp(search, 'i') },
+        { email: new RegExp(search, 'i') },
+        { subject: new RegExp(search, 'i') },
+        { message: new RegExp(search, 'i') }
+      ];
+    }
+
+    if (status) filter.status = status;
+    if (priority) filter.priority = priority;
+
+    const sort = {};
+    sort[sortBy] = sortOrder === 'desc' ? -1 : 1;
+
+    const messages = await Message.find(filter)
+      .sort(sort)
+      .limit(limit * 1)
+      .skip((page - 1) * limit)
+      .exec();
+
+    const total = await Message.countDocuments(filter);
+
+    res.json({
+      messages,
+      totalPages: Math.ceil(total / limit),
+      currentPage: page,
+      total
+    });
+  } catch (error) {
+    console.error('Get contact messages error:', error);
+    res.status(500).json({
+      message: 'Failed to fetch contact messages',
+      error: error.message
+    });
+  }
+});
+
+// Get single contact message by ID
+router.get('/:id', adminAuth, checkPermission('applications', 'view'), async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const message = await Message.findById(id);
+    if (!message) {
+      return res.status(404).json({ message: 'Contact message not found' });
+    }
+
+    res.json(message);
+  } catch (error) {
+    console.error('Get contact message error:', error);
+    res.status(500).json({
+      message: 'Failed to fetch contact message',
+      error: error.message
+    });
+  }
+});
+
+// Update contact message status
+router.put('/:id/status', adminAuth, checkPermission('applications', 'edit'), async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { status, priority } = req.body;
+
+    const updateData = {};
+    if (status) updateData.status = status;
+    if (priority) updateData.priority = priority;
+
+    const message = await Message.findByIdAndUpdate(
+      id,
+      updateData,
+      { new: true, runValidators: true }
+    );
+
+    if (!message) {
+      return res.status(404).json({ message: 'Contact message not found' });
+    }
+
+    res.json({
+      message: 'Contact message status updated successfully',
+      message
+    });
+  } catch (error) {
+    console.error('Update contact message status error:', error);
+    res.status(500).json({
+      message: 'Failed to update contact message status',
+      error: error.message
+    });
+  }
+});
+
+// Add admin response to contact message
+router.put('/:id/response', adminAuth, checkPermission('applications', 'edit'), async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { response } = req.body;
+
+    if (!response) {
+      return res.status(400).json({ message: 'Response message is required' });
+    }
+
+    const message = await Message.findByIdAndUpdate(
+      id,
+      {
+        status: 'replied',
+        adminResponse: {
+          message: response,
+          respondedBy: req.adminId,
+          respondedAt: new Date()
+        }
+      },
+      { new: true, runValidators: true }
+    ).populate('adminResponse.respondedBy', 'name email');
+
+    if (!message) {
+      return res.status(404).json({ message: 'Contact message not found' });
+    }
+
+    res.json({
+      message: 'Response sent successfully',
+      message
+    });
+  } catch (error) {
+    console.error('Add admin response error:', error);
+    res.status(500).json({
+      message: 'Failed to send response',
+      error: error.message
+    });
+  }
+});
+
+// Delete contact message
+router.delete('/:id', adminAuth, checkPermission('applications', 'delete'), async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const message = await Message.findByIdAndDelete(id);
+    if (!message) {
+      return res.status(404).json({ message: 'Contact message not found' });
+    }
+
+    res.json({ message: 'Contact message deleted successfully' });
+  } catch (error) {
+    console.error('Delete contact message error:', error);
+    res.status(500).json({
+      message: 'Failed to delete contact message',
+      error: error.message
+    });
+  }
+});
+
+// Get contact message statistics
+router.get('/stats/overview', adminAuth, checkPermission('analytics', 'view'), async (req, res) => {
+  try {
+    const [
+      totalMessages,
+      unreadMessages,
+      repliedMessages,
+      todayMessages
+    ] = await Promise.all([
+      Message.countDocuments(),
+      Message.countDocuments({ status: 'unread' }),
+      Message.countDocuments({ status: 'replied' }),
+      Message.countDocuments({
+        createdAt: {
+          $gte: new Date(new Date().setHours(0, 0, 0, 0))
+        }
+      })
+    ]);
+
+    res.json({
+      stats: {
+        totalMessages,
+        unreadMessages,
+        repliedMessages,
+        todayMessages,
+        readRate: totalMessages > 0 ? Math.round((repliedMessages / totalMessages) * 100) : 0
+      }
+    });
+  } catch (error) {
+    console.error('Get contact message stats error:', error);
+    res.status(500).json({
+      message: 'Failed to fetch contact message statistics',
+      error: error.message
+    });
+  }
+});
+
+export default router;

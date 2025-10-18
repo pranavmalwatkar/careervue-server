@@ -1,0 +1,180 @@
+[{
+  "_id": {
+    "$oid": "68d157b8a2482ac0500a3626"
+  },
+  "id": "1",
+  "title": "Civil Services Examination (IAS/IPS/IFS) - 2024",
+  "department": "Union Public Service Commission",
+  "ministry": "Ministry of Personnel, Public Grievances and Pensions",
+  "location": "All India",
+  "qualification": "Bachelor's Degree from recognized university",
+  "ageLimit": "21-32 years (relaxation for reserved categories)",
+  "applicationFee": 100,
+  "examDate": "2024-06-15",
+  "lastDate": "2024-03-15",
+  "officialWebsite": "https://www.upsc.gov.in",
+  "notificationLink": "https://www.upsc.gov.in/sites/default/files/Notification_CSE_2024.pdf",
+  "applyLink": "https://upsconline.nic.in/",
+  "category": "Central Government",
+  "posts": 1000,
+  "salary": {
+    "min": 56100,
+    "max": 250000
+  },
+  "isActive": true,
+  "featured": false,
+  "createdBy": {
+    "$oid": "68d144632c00777ebd6798d6"
+  },
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-09-22T14:05:44.653Z"
+  },
+  "updatedAt": {
+    "$date": "2025-09-22T14:05:44.653Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68d157b8a2482ac0500a3627"
+  },
+  "id": "2",
+  "title": "Combined Graduate Level Examination - 2024",
+  "department": "Staff Selection Commission",
+  "ministry": "Ministry of Personnel, Public Grievances and Pensions",
+  "location": "All India",
+  "qualification": "Bachelor's Degree in any discipline",
+  "ageLimit": "18-30 years",
+  "applicationFee": 100,
+  "examDate": "2024-07-20",
+  "lastDate": "2024-04-30",
+  "officialWebsite": "https://ssc.nic.in",
+  "notificationLink": "https://ssc.nic.in/SSCFileServer/PortalManagement/UploadedFiles/notice_cgl_2024.pdf",
+  "applyLink": "https://ssc.nic.in/Portal/Apply",
+  "category": "Central Government",
+  "posts": 5000,
+  "salary": {
+    "min": 25000,
+    "max": 150000
+  },
+  "isActive": true,
+  "featured": false,
+  "createdBy": {
+    "$oid": "68d144632c00777ebd6798d6"
+  },
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-09-22T14:05:44.655Z"
+  },
+  "updatedAt": {
+    "$date": "2025-09-22T14:05:44.655Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68d157b8a2482ac0500a3628"
+  },
+  "id": "3",
+  "title": "State Civil Services Examination - 2024",
+  "department": "State Public Service Commission",
+  "ministry": "State Government",
+  "location": "Maharashtra",
+  "qualification": "Bachelor's Degree from recognized university",
+  "ageLimit": "21-35 years",
+  "applicationFee": 500,
+  "examDate": "2024-08-10",
+  "lastDate": "2024-05-20",
+  "officialWebsite": "https://mpsc.gov.in",
+  "notificationLink": "https://mpsc.gov.in/sites/default/files/MPSC_Notification_2024.pdf",
+  "applyLink": "https://mpsc.gov.in/apply",
+  "category": "State Government",
+  "posts": 200,
+  "salary": {
+    "min": 40000,
+    "max": 120000
+  },
+  "isActive": true,
+  "featured": false,
+  "createdBy": {
+    "$oid": "68d144632c00777ebd6798d6"
+  },
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-09-22T14:05:44.655Z"
+  },
+  "updatedAt": {
+    "$date": "2025-09-22T14:05:44.655Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68d157b8a2482ac0500a3629"
+  },
+  "id": "4",
+  "title": "Bank Probationary Officer - 2024",
+  "department": "State Bank of India",
+  "ministry": "Ministry of Finance",
+  "location": "All India",
+  "qualification": "Graduate degree from recognized university",
+  "ageLimit": "21-30 years",
+  "applicationFee": 750,
+  "examDate": "2024-05-25",
+  "lastDate": "2024-03-30",
+  "officialWebsite": "https://sbi.co.in",
+  "notificationLink": "https://sbi.co.in/documents/17529/0/PO_Notification_2024.pdf",
+  "applyLink": "https://ibpsonline.ibps.in/sbijan24/",
+  "category": "Banking",
+  "posts": 2000,
+  "salary": {
+    "min": 36000,
+    "max": 63840
+  },
+  "isActive": true,
+  "featured": false,
+  "createdBy": {
+    "$oid": "68d144632c00777ebd6798d6"
+  },
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-09-22T14:05:44.656Z"
+  },
+  "updatedAt": {
+    "$date": "2025-09-22T14:05:44.656Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68d157b8a2482ac0500a362a"
+  },
+  "id": "5",
+  "title": "Railway Assistant Loco Pilot - 2024",
+  "department": "Railway Recruitment Board",
+  "ministry": "Ministry of Railways",
+  "location": "All India",
+  "qualification": "10th Pass + ITI/Diploma in relevant trade",
+  "ageLimit": "18-28 years",
+  "applicationFee": 500,
+  "examDate": "2024-09-15",
+  "lastDate": "2024-06-30",
+  "officialWebsite": "https://indianrailways.gov.in",
+  "notificationLink": "https://rrb.gov.in/ALP_Notification_2024.pdf",
+  "applyLink": "https://rrb.apply.gov.in",
+  "category": "Railways",
+  "posts": 10000,
+  "salary": {
+    "min": 19900,
+    "max": 63200
+  },
+  "isActive": true,
+  "featured": false,
+  "createdBy": {
+    "$oid": "68d144632c00777ebd6798d6"
+  },
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-09-22T14:05:44.656Z"
+  },
+  "updatedAt": {
+    "$date": "2025-09-22T14:05:44.656Z"
+  }
+}]
