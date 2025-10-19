@@ -7,7 +7,7 @@ dotenv.config();
 const seedAdmin = async () => {
   try {
     // Connect to MongoDB
-    await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/careervue', {
+    await mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://pranavmalwatkar:Pranav@55@cluster0.lh0dbyk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
