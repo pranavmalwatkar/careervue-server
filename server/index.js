@@ -15,7 +15,7 @@ import adminRoutes from './routes/admin.js';
 import messageRoutes from './routes/messages.js';
 import contactMessageRoutes from './routes/contactMessages.js';
 import companyRoutes from './routes/companies.js';
-import Admin from './models/Admin.js';
+// import Admin from './models/Admin.js';
 dotenv.config();
 
 const app = express();
@@ -49,12 +49,44 @@ const limiter = rateLimit({
 // app.use('/api/', limiter); // Temporarily disabled for testing
 
 // MongoDB connection
-mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://pranavmalwatkar:Pranav@55@cluster0.lh0dbyk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
+import { MongoClient, ServerApiVersion } from 'mongodb';
+
+const uri = process.env.MONGODB_URI || "mongodb+srv://pranavmalwatkar:Pranav55@cluster0.lh0dbyk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+
+// Create a MongoClient with a MongoClientOptions object to set the Stable API version
+const client = new MongoClient(uri, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+  }
+});
+
+// Connect to MongoDB Atlas
+async function connectToMongoDB() {
+  try {
+    // Connect the client to the server
+    await client.connect();
+    // Send a ping to confirm a successful connection
+    await client.db("admin").command({ ping: 1 });
+    console.log("MongoDB Atlas connected successfully!");
+    return client;
+  } catch (error) {
+    console.error('MongoDB connection error:', error);
+    process.exit(1);
+  }
+}
+
+// Initialize MongoDB connection
+connectToMongoDB();
+
+// Also connect with mongoose for backward compatibility
+mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://pranavmalwatkar:Pranav55@cluster0.lh0dbyk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
-.then(() => console.log('MongoDB connected successfully'))
-.catch(err => console.error('MongoDB connection error:', err));
+.then(() => console.log('Mongoose connected successfully'))
+.catch(err => console.error('Mongoose connection error:', err));
 
 
 // Routes
