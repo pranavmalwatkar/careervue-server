@@ -5,6 +5,44 @@ import mongoose from 'mongoose';
 
 const router = express.Router();
 
+// Public route: Create a new contact message (no auth required)
+router.post('/contact', async (req, res) => {
+  try {
+    const { name, email, phone, subject, message } = req.body;
+
+    // Validate required fields
+    if (!name || !email || !subject || !message) {
+      return res.status(400).json({ 
+        message: 'Please provide all required fields: name, email, subject, and message' 
+      });
+    }
+
+    // Create new message
+    const newMessage = new Message({
+      name,
+      email,
+      phone,
+      subject,
+      message,
+      status: 'unread',
+      priority: 'medium'
+    });
+
+    await newMessage.save();
+
+    res.status(201).json({
+      message: 'Message sent successfully! We will get back to you soon.',
+      success: true
+    });
+  } catch (error) {
+    console.error('Create contact message error:', error);
+    res.status(500).json({
+      message: 'Failed to send message. Please try again later.',
+      error: error.message
+    });
+  }
+});
+
 // Get all messages with admin filters
 router.get('/', adminAuth, checkPermission('applications', 'view'), async (req, res) => {
   try {

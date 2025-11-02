@@ -487,7 +487,7 @@ const seedJobs = async () => {
     await initModels();
     
     // Connect to MongoDB
-    await mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://pranavmalwatkar:Pranav@55@cluster0.lh0dbyk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0');
+    await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/careervue');
     
     // Create a default user for posting jobs
     let defaultUser = await User.findOne({ email: 'admin@careervue.com' });

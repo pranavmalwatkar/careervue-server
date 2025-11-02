@@ -302,7 +302,7 @@ const getRandomStatus = () => {
 const seedMessages = async () => {
   try {
     // Connect to MongoDB
-    await mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://pranavmalwatkar:Pranav@55@cluster0.lh0dbyk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0');
+    await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/careervue');
     console.log('Connected to MongoDB');
 
     // Clear existing messages (optional - comment out if you want to keep existing messages)
