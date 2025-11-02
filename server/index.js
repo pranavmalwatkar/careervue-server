@@ -51,7 +51,7 @@ const limiter = rateLimit({
 // MongoDB connection
 import { MongoClient, ServerApiVersion } from 'mongodb';
 
-const uri = process.env.MONGODB_URI || "mongodb+srv://pranavmalwatkar:Pranav55@cluster0.lh0dbyk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const uri = process.env.MONGODB_URI || "mongodb://localhost:27017/careervue";
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
@@ -81,7 +81,7 @@ async function connectToMongoDB() {
 connectToMongoDB();
 
 // Also connect with mongoose for backward compatibility
-mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://pranavmalwatkar:Pranav55@cluster0.lh0dbyk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/careervue', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
